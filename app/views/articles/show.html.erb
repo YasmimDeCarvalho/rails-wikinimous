@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="mx-auto" style="max-width: 800px;">
+
+    <h1 class="fw-bold text-dark mb-3">
+      <%= @article.title %>
+    </h1>
+
+    <hr>
+
+    <div class="text-secondary fs-5 lh-lg">
+      <%= simple_format(@article.content) %>
+    </div>
+
+    <%= link_to "← Back to articles", articles_path,
+      class: "text-decoration-none text-secondary" %>
+
+  </div>
+</div>

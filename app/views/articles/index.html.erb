@@ -1,0 +1,27 @@
+<nav class="navbar bg-light px-4">
+  <span class="navbar-brand text-dark fw-bold">Wikinimous</span>
+
+  <%= link_to "New Article", new_article_path,
+    class: "nav-link text-secondary" %>
+</nav>
+
+<ul class="list-group list-group-flush">
+  <% @articles.each do |article| %>
+    <li class="list-group-item">
+
+      <%= link_to article.title, article_path(article),
+        class: "text-decoration-none text-dark fw-bold fs-4" %>
+
+      <p class="mb-2 text-secondary"><%= article.content %></p>
+
+      <%= link_to "Edit", edit_article_path(article),
+        class: "text-decoration-none" %>
+
+      <%= link_to "Delete", article_path(article),
+        class: "text-decoration-none text-danger ms-3",
+        data: { turbo_method: :delete,
+                turbo_confirm: "Are you sure?" } %>
+
+    </li>
+  <% end %>
+</ul>
